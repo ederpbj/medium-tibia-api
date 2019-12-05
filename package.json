@@ -1,0 +1,20 @@
+{
+  "name": "medium-tibia-api",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "repository": "https://github.com/ederpbj/medium-tibia-api.git",
+  "author": "ederpbj <ederpbj@yahoo.com.br>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon src/index.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-graphql": "^0.9.0",
+    "graphql": "^14.5.8",
+    "jsdom": "^15.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.1"
+  }
+}
