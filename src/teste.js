@@ -1,8 +1,11 @@
-const jsdom = require('jsdom')
-const {JSDOM} = jsdom
+//Removido para incluir nova função import
+//const jsdom = require('jsdom')
+//const {JSDOM} = jsdom
+
+
 
 //Importando a função criada
-const { getTextContent } = require('./utils/dom.utils')
+const { getDomFromURL, getTextContent } = require('./utils/dom.utils')
 const url = 'https://www.tibia.com/community/?subtopic=characters&name=hue+proliferator'
 
 /*
@@ -11,8 +14,10 @@ JSDOM.fromURL(url)
     .catch(error => console.log(error))
 */
 
-JSDOM.fromURL(url)
-    .then(dom => {
+const dom = getDomFromURL(url)
+
+//JSDOM.fromURL(url)
+    dom.then(dom => {
         //criar variável com nosso seletor
         const playerNameSelector = `#characters > div.Border_2 > div > div > table:nth-child(1) > tbody > tr:nth-child(2) > td:nth-child(2)`
 
