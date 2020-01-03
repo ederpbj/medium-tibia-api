@@ -1,12 +1,8 @@
 const express = require('express')
-
-const schema = require('../schema/Character')
-
-
 //Import do graphqlHTTP que cria um servidor preparado pro GraphQL + HTTP
 const graphqlHTTP = require('express-graphql')
 
-
+const schema = require('../schemas/Character')
 
 //Exporta uma função
 module.exports = () => {
@@ -27,11 +23,20 @@ module.exports = () => {
   app.use(
     '/player',
     graphqlHTTP({
+      formatError: error => ({message: error.message}),
       schema,
       graphiql: true,
+      //Extra
+      /*
+      formatError(err) { 
+        return { 
+          ...formatError(err), 
+          stack: err.stack ? err.stack.split(`\n`) : [], 
+        } 
+      },
+      */
     }), //Passando a instancia da função graphqlHTTP
   )
-
   //Retorna a instancia do Express
   return app
 }
